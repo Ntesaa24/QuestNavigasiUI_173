@@ -18,4 +18,18 @@ enum class Navigasi {
 @Composable
 fun DataApp(
     navController: NavHostController = rememberNavController()
-)
+){
+    Scaffold { isiRuang->
+        NavHost(
+            navController = navController,
+            startDestination = Navigasi.Foumulirku.name,
+
+            modifier = Modifier.padding(paddingValues = isiRuang)){
+            composable(route = Navigasi.Foumulirku.name){
+                FormIsian (
+                    //pilihanJK = jenisK.map
+                    OnSubmitBtnClick = {
+                        navController.navigate(route = Navigasi.Detail.name)
+                    }
+                )
+            }
